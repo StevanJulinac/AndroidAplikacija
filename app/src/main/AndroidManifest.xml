@@ -24,6 +24,10 @@
         <activity android:name=".CreateFolderActivity"></activity>
         <activity android:name=".CreateEmailActivity"/>
         <activity android:name=".ContactActivity"/>
+        <activity android:name=".SettingsActivity"/>
+        <activity android:name=".FolderActivity"/>
+        <activity android:name=".FoldersActivity"/>
+
 
     </application>
 
