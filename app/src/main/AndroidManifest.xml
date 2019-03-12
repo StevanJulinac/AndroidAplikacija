@@ -12,12 +12,19 @@
         <activity android:name=".EmailActivity"></activity>
         <activity android:name=".SplashActivity" />
         <activity android:name=".MainActivity">
+
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".EmailsActivity"/>
+        <activity android:name=".CreateFolderActivity"></activity>
+        <activity android:name=".CreateEmailActivity"/>
+        <activity android:name=".ContactActivity"/>
+
     </application>
 
 </manifest>
