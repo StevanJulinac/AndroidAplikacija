@@ -3,30 +3,32 @@ package com.example.androidaplikacija;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
+public class LoginActivity extends AppCompatActivity {
 
-import java.util.Timer;
-import java.util.TimerTask;
-
-public class SplashActivity extends AppCompatActivity {
-
-    Timer timer;
+    private Button BtnMove;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_login);
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
+        BtnMove = findViewById(R.id.btnStartEmailsActivity);
+
+        BtnMove.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
+            public void onClick(View v) {
+
+                moveToEmailsActivity();
             }
-        },4000);
+        });
+    }
+
+    private void moveToEmailsActivity(){
+        Intent intent = new Intent(LoginActivity.this, EmailsActivity.class);
+        startActivity(intent);
     }
 
     @Override
