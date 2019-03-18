@@ -9,11 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".CreateContactActivity" />
-        <activity android:name=".ContactsActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".EmailActivity" />
+        <activity android:name=".LoginActivity"
+            android:label="@string/title_activity_login"/>
+
+        <activity android:name=".CreateContactActivity"
+            android:label="@string/title_activity_createContact"/>
+
+        <activity android:name=".ContactsActivity"
+            android:label="@string/title_activity_contacts"/>
+
+        <activity android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile"/>
+
+        <activity android:name=".EmailActivity"
+            android:label="@string/title_activity_email"/>
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,14 +31,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".EmailsActivity" />
-        <activity android:name=".CreateFolderActivity" />
-        <activity android:name=".CreateEmailActivity" />
-        <activity android:name=".ContactActivity" />
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".FolderActivity" />
-        <activity android:name=".FoldersActivity" />
+
+        <activity android:name=".EmailsActivity"
+            android:label="@string/title_activity_emails"/>
+
+        <activity android:name=".CreateFolderActivity"
+            android:label="@string/title_activity_createFolder"/>
+
+        <activity android:name=".CreateEmailActivity"
+            android:label="@string/title_activity_createEmail"/>
+
+        <activity android:name=".ContactActivity"
+            android:label="@string/title_activity_contact"/>
+
+        <activity android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"/>
+
+        <activity android:name=".FolderActivity"
+            android:label="@string/title_activity_folder"/>
+
+        <activity android:name=".FoldersActivity"
+            android:label="@string/title_activity_folders"/>
+
     </application>
 
 </manifest>
