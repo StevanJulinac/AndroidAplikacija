@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,79 +10,74 @@
         android:id="@+id/btnContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Contact"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"/>
+
+    <Button
+        android:id="@+id/btnContacts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Contacts"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="41dp" />
+        android:layout_below="@id/btnCreateContact"/>
 
     <Button
         android:id="@+id/btnCreateContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Create Contact"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="121dp" />
-
-    <Button
-        android:id="@+id/btnCreateEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Email"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="203dp" />
-
-    <Button
-        android:id="@+id/btnCreateFolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Folder"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="281dp" />
+        android:layout_below="@id/btnCreateEmail" />
 
     <Button
         android:id="@+id/btnEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Email"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="361dp" />
+        android:layout_below="@id/btnContact" />
 
     <Button
-        android:id="@+id/btnFolders"
+        android:id="@+id/btnCreateEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Folders"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="443dp" />
-
-    <Button
-        android:id="@+id/btnSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="40dp" />
-
-    <Button
-        android:id="@+id/btnProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        tools:layout_editor_absoluteX="306dp"
-        tools:layout_editor_absoluteY="120dp" />
+        android:text="Create Email"
+        android:layout_below="@id/btnFolders" />
 
     <Button
         android:id="@+id/btnFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Folder"
-        tools:layout_editor_absoluteX="305dp"
-        tools:layout_editor_absoluteY="202dp" />
+        android:layout_below="@id/btnEmail" />
 
     <Button
-        android:id="@+id/btnContact"
+        android:id="@+id/btnFolders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact"
-        tools:layout_editor_absoluteX="304dp"
-        tools:layout_editor_absoluteY="280dp" />
-</android.support.constraint.ConstraintLayout>
+
+        android:layout_below="@id/btnCreateFolder"
+        android:text="Folders" />
+
+    <Button
+        android:id="@+id/btnCreateFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginStart="-88dp"
+        android:layout_below="@id/btnProfile"
+        android:text="Create Folder" />
+
+    <Button
+        android:id="@+id/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_below="@id/btnFolder" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:layout_below="@id/btnSettings" />
+
+</RelativeLayout>
