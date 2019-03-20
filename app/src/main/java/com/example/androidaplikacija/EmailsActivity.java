@@ -1,7 +1,7 @@
 package com.example.androidaplikacija;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +14,11 @@ public class EmailsActivity extends AppCompatActivity {
     private Button BtnMove3;
     private Button BtnMove4;
     private Button BtnMove5;
+    private Button BtnMove6;
+    private Button BtnMove7;
+    private Button BtnMove8;
+    private Button BtnMove9;
+    private Button BtnMove10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +30,11 @@ public class EmailsActivity extends AppCompatActivity {
         BtnMove3 = findViewById(R.id.btnCreateFolder);
         BtnMove4 = findViewById(R.id.btnSettings);
         BtnMove5 = findViewById(R.id.btnFolders);
+        BtnMove6 = findViewById(R.id.btnCreateContact);
+        BtnMove7 = findViewById(R.id.btnCreateEmail);
+        BtnMove8 = findViewById(R.id.btnEmail);
+        BtnMove9 = findViewById(R.id.btnFolder);
+        BtnMove10 = findViewById(R.id.btnProfile);
 
         BtnMove1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,15 +53,17 @@ public class EmailsActivity extends AppCompatActivity {
         BtnMove3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MoveToCreateFolderAcitivity();
+                MoveToCreateFolderActivity();
             }
         });
+
         BtnMove4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 MoveToSettingsActivity();
             }
         });
+
         BtnMove5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +71,63 @@ public class EmailsActivity extends AppCompatActivity {
             }
         });
 
+        BtnMove6.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                MoveToCreateContactActivity();
+            }
+        }) ;
+
+        BtnMove7.setOnClickListener(new  View.OnClickListener(){
+            public  void onClick(View v){
+                MoveToCreateEmailActivity();
+            }
+        });
+
+        BtnMove8.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                MoveToEmailActivity();
+            }
+        });
+
+        BtnMove9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoveToFolderActivity();
+            }
+        });
+
+        BtnMove10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoveToProfileActivity();
+            }
+        });
+
+    }
+
+    private  void MoveToProfileActivity(){
+        Intent intent = new Intent(EmailsActivity.this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    private void MoveToFolderActivity(){
+        Intent intent = new Intent(EmailsActivity.this, FolderActivity.class);
+        startActivity(intent);
+    }
+
+    private  void MoveToEmailActivity(){
+        Intent intent = new Intent(EmailsActivity.this, EmailActivity.class);
+        startActivity(intent);
+    }
+
+    private  void MoveToCreateEmailActivity(){
+        Intent intent = new Intent(EmailsActivity.this, CreateEmailActivity.class);
+        startActivity(intent);
+    }
+
+    private void MoveToCreateContactActivity() {
+        Intent intent = new Intent(EmailsActivity.this, CreateContactActivity.class);
+        startActivity(intent);
     }
 
     private void MoveToContactActivity(){
@@ -71,7 +140,7 @@ public class EmailsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void MoveToCreateFolderAcitivity(){
+    private void MoveToCreateFolderActivity(){
         Intent intent = new Intent(EmailsActivity.this,CreateFolderActivity.class);
         startActivity(intent);
     }
