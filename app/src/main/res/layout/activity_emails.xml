@@ -10,7 +10,7 @@
         android:id="@+id/btnContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact"
+        android:text="@string/btnText_contact"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"/>
 
@@ -18,35 +18,35 @@
         android:id="@+id/btnContacts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contacts"
+        android:text="@string/btnText_Contacts"
         android:layout_below="@id/btnCreateContact"/>
 
     <Button
         android:id="@+id/btnCreateContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Contact"
+        android:text="@string/btnText_create_contact"
         android:layout_below="@id/btnCreateEmail" />
 
     <Button
         android:id="@+id/btnEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/btnText_email"
         android:layout_below="@id/btnContact" />
 
     <Button
         android:id="@+id/btnCreateEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Email"
+        android:text="@string/btnText_create_email"
         android:layout_below="@id/btnFolders" />
 
     <Button
         android:id="@+id/btnFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Folder"
+        android:text="@string/btnText_folder"
         android:layout_below="@id/btnEmail" />
 
     <Button
@@ -54,27 +54,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnCreateFolder"
-        android:text="Folders" />
+        android:text="@string/btnText_folders" />
 
     <Button
         android:id="@+id/btnCreateFolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnProfile"
-        android:text="Create Folder" />
+        android:text="@string/btnText_create_folder" />
 
     <Button
         android:id="@+id/btnSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/btnText_settings"
         android:layout_below="@id/btnFolder" />
 
     <Button
         android:id="@+id/btnProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Profile"
+        android:text="@string/btnText_profile"
         android:layout_below="@id/btnSettings" />
 
 </RelativeLayout>

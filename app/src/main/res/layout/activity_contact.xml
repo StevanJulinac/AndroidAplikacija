@@ -4,45 +4,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContactActivity">
+    tools:context=".ContactActivity"
+    android:layout_margin="5dp">
+
+    <EditText
+        android:id="@+id/insert_ContactID"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@id/contactID"
+        android:inputType="text"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/contactID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contact"/>
+        android:text="@string/txtView_contact"
+        android:textSize="28sp" />
 
     <TextView
         android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/contactID"
-        android:text="first"/>
+        android:textSize="20sp"
+        android:layout_margin="4dp"
+        android:text="@string/txtView_first_name"/>
 
     <TextView
         android:id="@+id/lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/firstName"
-        android:text="last"/>
+        android:textSize="20sp"
+        android:layout_margin="4dp"
+        android:text="@string/txtView_last_name"/>
 
     <TextView
         android:id="@+id/display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/lastName"
-        android:text="display"/>
+        android:textSize="20sp"
+        android:layout_margin="4dp"
+        android:text="@string/txtView_display"/>
 
     <TextView
         android:id="@+id/email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/display"
-        android:text="email"/>
+        android:textSize="20sp"
+        android:layout_margin="4dp"
+        android:text="@string/txtView_email"/>
 
     <TextView
         android:id="@+id/format"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_margin="4dp"/>
 
 </RelativeLayout>
