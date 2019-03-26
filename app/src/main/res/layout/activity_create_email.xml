@@ -1,9 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreateEmailActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <include
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/toolbar"
+        android:layout_marginBottom="10dp"/>
+
+
+    <Button
+        android:id="@+id/btnBackID"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/toolbar"
+        android:text="@string/btnBackSting"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtViewTo"
+        android:layout_below="@id/btnBackID"
+        android:textSize="25sp"
+        android:text="@string/txtView_createEmailToString"/>
+
+    <EditText
+        android:id="@+id/editTextTo"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_toEndOf="@id/txtViewTo"
+        android:layout_below="@id/btnBackID"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextTitle"
+        android:layout_below="@id/editTextTo"
+        android:textSize="18sp"
+        android:text="@string/editText_createEmailTitleString" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextEmailContent"
+        android:layout_below="@id/editTextTitle"
+        android:textSize="18sp"
+        android:text="@string/editTextEmailContentString"
+        android:background="@null"/>
+
+
+
+
+</RelativeLayout>
