@@ -46,5 +46,13 @@
     <string name="last_name">Last name:</string>
     <string name="email">Email:</string>
 
+   //Create Folder Activity
+    <string name="folder_name">Folder Name:</string>
+    //Profile Activity
+    <string name="password">Password</string>
+    <string name="username">username</string>
+    <string name="lastname">lastname</string>
+    <string name="password1">password</string>
+
 
 </resources>

@@ -1,9 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileActivity"
+    android:layout_margin="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/txt_view_fName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:textSize="24sp"
+        android:layout_marginBottom="5dp"
+
+        />
+    <EditText
+        android:id="@+id/edit_view_fName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:layout_toEndOf="@id/txt_view_fName"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+
+        />
+
+    <TextView
+        android:id="@+id/txt_view_lName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/last_name"
+        android:layout_below="@id/txt_view_fName"
+        android:textSize="24sp"
+        android:layout_marginBottom="5dp"
+
+
+        />
+    <EditText
+        android:id="@+id/edit_view_lName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lastname"
+        android:layout_toEndOf="@id/txt_view_lName"
+        android:layout_below="@id/edit_view_fName"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+
+        />
+
+    <TextView
+        android:id="@+id/txt_view_userName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="17dp"
+        android:text="@string/text_view_username"
+        android:layout_below="@id/txt_view_lName"
+        android:textSize="24sp"
+        android:layout_marginBottom="5dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/txt_view_userName"
+        android:layout_below="@id/edit_view_lName"
+        android:text="@string/username"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+
+        />
+
+    <TextView
+        android:id="@+id/txt_view_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_view_userName"
+        android:text="@string/password"
+        android:textSize="24sp"
+        android:layout_marginBottom="5dp"
+        />
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/txt_view_password"
+        android:layout_below="@id/edit_text_userName"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"
+        android:text="@string/password1"
+
+
+        />
+
+
+</RelativeLayout>
