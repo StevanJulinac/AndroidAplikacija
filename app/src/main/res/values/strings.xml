@@ -50,5 +50,11 @@
     <string name="editText_createEmailTitleString">Title</string>
     <string name="editTextEmailContentString">Email content</string>
 
+    //Create Contact Activity
+    <string name="contact_id">Contact ID:</string>
+    <string name="first_name">First name:</string>
+    <string name="last_name">Last name:</string>
+    <string name="email">Email:</string>
+
 
 </resources>
