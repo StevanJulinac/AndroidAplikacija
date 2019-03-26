@@ -1,9 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateContactActivity">
+    tools:context=".CreateContactActivity"
+    android:layout_margin="10dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/txt_view_ContactID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_id"
+        android:textSize="24sp"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_ContactID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/contact_id"
+        android:layout_toEndOf="@id/txt_view_ContactID"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/txt_view_firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/first_name"
+        android:textSize="24sp"
+        android:layout_below="@id/txt_view_ContactID"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/first_name"
+        android:layout_toEndOf="@id/txt_view_firstName"
+        android:layout_below="@id/edit_text_ContactID"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/txt_view_lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/last_name"
+        android:textSize="24sp"
+        android:layout_below="@id/txt_view_firstName"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/last_name"
+        android:layout_toEndOf="@id/txt_view_lastName"
+        android:layout_below="@id/edit_text_firstName"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/txt_view_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/email"
+        android:textSize="24sp"
+        android:layout_below="@id/txt_view_lastName"
+        android:layout_marginBottom="5dp"/>
+
+    <EditText
+        android:id="@+id/edit_text_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/email"
+        android:layout_toEndOf="@id/txt_view_email"
+        android:layout_below="@id/edit_text_lastName"
+        android:layout_marginBottom="5dp"
+        android:textSize="15sp"/>
+
+</RelativeLayout>
