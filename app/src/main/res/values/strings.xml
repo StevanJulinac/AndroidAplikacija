@@ -20,7 +20,6 @@
     <string name="btnText_Contacts">Contacts</string>
     <string name="btnText_create_contact">Create Contact</string>
     <string name="btnText_email">Email</string>
-    <string name="btnText_create_email">Create Email</string>
     <string name="btnText_folder">Folder</string>
     <string name="btnText_folders">Folders</string>
     <string name="btnText_create_folder">Create Folder</string>
@@ -39,6 +38,17 @@
     <string name="txtView_first_name">First name:</string>
     <string name="txtView_last_name">Last name:</string>
     <string name="txtView_email">Email:</string>
+    <string name="btnText_create_email">Create email</string>
+    <string name="txtView_emailSenderString">email sender</string>
+    <string name="txtView_emailTitleString">Naslov Emaila</string>
+    <string name="txtView_emailContentString">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="btnReplyString">Reply</string>
+    <string name="btnForwardString">Forward</string>
+    <string name="btnReplyToAllString">Reply To All</string>
+    <string name="btnBackSting">B</string>
+    <string name="txtView_createEmailToString">To:</string>
+    <string name="editText_createEmailTitleString">Title</string>
+    <string name="editTextEmailContentString">Email content</string>
 
 
 </resources>
