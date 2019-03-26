@@ -43,7 +43,7 @@
         android:id="@+id/editTextTitle"
         android:layout_below="@id/editTextTo"
         android:textSize="18sp"
-        android:text="@string/editText_createEmailTitleString" />
+        android:hint="@string/editText_createEmailTitleString" />
 
     <EditText
         android:layout_width="match_parent"
@@ -51,7 +51,7 @@
         android:id="@+id/editTextEmailContent"
         android:layout_below="@id/editTextTitle"
         android:textSize="18sp"
-        android:text="@string/editTextEmailContentString"
+        android:hint="@string/editTextEmailContentString"
         android:background="@null"/>
 
 

@@ -56,7 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="17dp"
-        android:text="@string/text_view_username"
+        android:text="@string/username"
         android:layout_below="@id/txt_view_lName"
         android:textSize="24sp"
         android:layout_marginBottom="5dp"

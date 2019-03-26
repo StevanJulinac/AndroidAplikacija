@@ -4,12 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".LoginActivity"
+    android:layout_margin="10dp">
+
+    <EditText
+        android:id="@+id/edit_text_userName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_txt_user"
+        android:inputType="text"
+        android:textSize="30sp"/>
+
+    <EditText
+        android:id="@+id/edit_text_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/edit_txt_pass"
+        android:inputType="textPassword"
+        android:textSize="30sp"
+        android:layout_below="@id/edit_text_userName"/>
 
     <Button
         android:id="@+id/btnStartEmailsActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnText_go_to_emails"
+        android:text="@string/btnText_login"
+        android:textSize="40sp"
         android:layout_centerInParent="true"/>
 </RelativeLayout>

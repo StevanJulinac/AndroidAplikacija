@@ -19,7 +19,7 @@
         android:id="@+id/edit_text_FolderName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/folder_name"
+        android:hint="@string/folder_name"
 
         android:layout_toEndOf="@id/txt_view_FolderName"
         android:layout_marginBottom="5dp"
