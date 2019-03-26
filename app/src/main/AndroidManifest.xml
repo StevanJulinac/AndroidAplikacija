@@ -10,13 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ContactActivity"
-            android:label="@string/title_activity_contact"/>
+            android:label="@string/title_activity_contact"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
             android:name=".CreateContactActivity"
-            android:label="@string/title_activity_createContact" />
+            android:label="@string/title_activity_createContact"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ContactsActivity"
             android:label="@string/title_activity_contacts" />

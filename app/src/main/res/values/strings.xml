@@ -28,12 +28,17 @@
     <string name="btnText_profile">Profile</string>
 
     //login activity
-    <string name="btnText_go_to_emails">Go to Emails</string>
+    <string name="btnText_login">Login</string>
+    <string name="text_view_username">Username:</string>
+    <string name="text_view_password">Password:</string>
+    <string name="edit_txt_pass">password</string>
+    <string name="edit_txt_user">username</string>
 
     //contact activity
     <string name="txtView_contact">Contact:</string>
     <string name="txtView_first_name">First name:</string>
     <string name="txtView_last_name">Last name:</string>
-    <string name="txtView_display">display</string>
-    <string name="txtView_email">email</string>
+    <string name="txtView_email">Email:</string>
+
+
 </resources>
