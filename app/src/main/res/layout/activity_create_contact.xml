@@ -7,78 +7,89 @@
     tools:context=".CreateContactActivity"
     android:layout_margin="10dp">
 
-    <TextView
-        android:id="@+id/txt_view_ContactID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contact_id"
-        android:textSize="24sp"
-        android:layout_marginBottom="5dp"/>
-
-    <EditText
-        android:id="@+id/edit_text_ContactID"
+    <include
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/contact_id"
-        android:layout_toEndOf="@id/txt_view_ContactID"
-        android:layout_marginBottom="5dp"
-        android:textSize="15sp"/>
+        layout="@layout/toolbar"
+        android:layout_marginBottom="10dp"
+
+        />
 
     <TextView
-        android:id="@+id/txt_view_firstName"
+        android:id="@+id/contactID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/first_name"
-        android:textSize="24sp"
-        android:layout_below="@id/txt_view_ContactID"
-        android:layout_marginBottom="5dp"/>
+        android:layout_below="@id/toolbar"
+        android:text="@string/txtView_contact"
+        android:textSize="28sp"
+        android:layout_marginBottom="10dp"/>
 
     <EditText
-        android:id="@+id/edit_text_firstName"
-        android:layout_width="match_parent"
+        android:id="@+id/insert_ContactID"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/first_name"
-        android:layout_toEndOf="@id/txt_view_firstName"
-        android:layout_below="@id/edit_text_ContactID"
-        android:layout_marginBottom="5dp"
-        android:textSize="15sp"/>
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@id/contactID"
+        android:layout_below="@id/toolbar"
+        android:inputType="text"
+        android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/txt_view_lastName"
+        android:id="@+id/firstName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/last_name"
-        android:textSize="24sp"
-        android:layout_below="@id/txt_view_firstName"
-        android:layout_marginBottom="5dp"/>
+        android:layout_below="@id/contactID"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/txtView_first_name"/>
 
     <EditText
-        android:id="@+id/edit_text_lastName"
-        android:layout_width="match_parent"
+        android:id="@+id/insert_firstName"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/last_name"
-        android:layout_toEndOf="@id/txt_view_lastName"
-        android:layout_below="@id/edit_text_firstName"
-        android:layout_marginBottom="5dp"
-        android:textSize="15sp"/>
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@id/firstName"
+        android:layout_below="@id/insert_ContactID"
+        android:inputType="text"
+        android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/txt_view_email"
+        android:id="@+id/lastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/email"
-        android:textSize="24sp"
-        android:layout_below="@id/txt_view_lastName"
-        android:layout_marginBottom="5dp"/>
+        android:layout_below="@id/firstName"
+        android:textSize="20sp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/txtView_last_name"/>
 
     <EditText
-        android:id="@+id/edit_text_email"
-        android:layout_width="match_parent"
+        android:id="@+id/insert_lastName"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:layout_toEndOf="@id/txt_view_email"
-        android:layout_below="@id/edit_text_lastName"
-        android:layout_marginBottom="5dp"
-        android:textSize="15sp"/>
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@id/lastName"
+        android:layout_below="@id/insert_firstName"
+        android:inputType="text"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lastName"
+        android:textSize="30sp"
+        android:layout_marginBottom="10dp"
+        android:text="@string/txtView_email"/>
+
+    <EditText
+        android:id="@+id/insert_email"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_toEndOf="@id/email"
+        android:layout_below="@id/insert_lastName"
+        android:inputType="textEmailAddress"
+        android:textSize="15sp" />
 
 </RelativeLayout>
