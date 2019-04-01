@@ -61,7 +61,13 @@
     <string name="password">Password</string>
     <string name="username">username</string>
     <string name="lastname">lastname</string>
-    <string name="password1">password</string>
+
+    //Drawer
+    <string name="Home">Home</string>
+    <string name="Emails">Emails</string>
+    <string name="Contacts">Contacts</string>
+    <string name="Folders">Folders</string>
+    <string name="Settings">Settings</string>
 
 
 </resources>
