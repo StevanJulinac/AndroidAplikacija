@@ -1,4 +1,6 @@
 <resources>
+    <string name="open">open</string>
+    <string name="close">close</string>
     //activities
     <string name="app_name">AndroidAplikacija</string>
     <string name="title_activity_contacts">ContactsActivity</string>
@@ -53,6 +55,11 @@
     <string name="first_name">First name:</string>
     <string name="last_name">Last name:</string>
     <string name="email">Email:</string>
+    <string name="home">Home</string>
+    <string name="mHome">Home</string>
+    <string name="mContacts">Contacts</string>
+    <string name="mFolders">Folders</string>
+    <string name="mSettings">Settings</string>
 
    //Create Folder Activity
     <string name="folder_name">Folder Name:</string>

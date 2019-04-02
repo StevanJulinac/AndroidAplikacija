@@ -9,19 +9,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContactActivity"
+        <activity
+            android:name=".ContactActivity"
             android:label="@string/title_activity_contact"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
             android:name=".CreateContactActivity"
             android:label="@string/title_activity_createContact"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ContactsActivity"
-            android:label="@string/title_activity_contacts" />
+            android:label="@string/title_activity_contacts"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".ProfileActivity"
             android:label="@string/title_activity_profile" />
@@ -53,7 +55,9 @@
             android:label="@string/title_activity_folder" />
         <activity
             android:name=".FoldersActivity"
-            android:label="@string/title_activity_folders" />
+            android:label="@string/title_activity_folders"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

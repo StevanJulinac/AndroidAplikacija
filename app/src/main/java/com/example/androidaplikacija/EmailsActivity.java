@@ -2,18 +2,21 @@ package com.example.androidaplikacija;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-public class EmailsActivity extends AppCompatActivity {
-
-    private DrawerLayout drawer;
+public class EmailsActivity extends AppCompatActivity implements
+                                            NavigationView.OnNavigationItemSelectedListener{
 
     private Button BtnMove1;
     private Button BtnMove2;
@@ -26,20 +29,28 @@ public class EmailsActivity extends AppCompatActivity {
     private Button BtnMove9;
     private Button BtnMove10;
 
+    private DrawerLayout mDrawerLayout;
+    private ActionBarDrawerToggle mToggle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_emails);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        drawer = findViewById(R.id.drawerLayout);
+        mDrawerLayout = findViewById(R.id.drawerLayout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
+        mToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        mDrawerLayout.addDrawerListener(mToggle);
+        mToggle.syncState();
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navMenu);
+        navigationView.setNavigationItemSelectedListener(this);
 
         BtnMove1 = findViewById(R.id.btnContact);
         BtnMove2 = findViewById(R.id.btnContacts);
@@ -121,9 +132,50 @@ public class EmailsActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        int id =item.getItemId();
+
+        if(id == R.id.nav_home) {
+            Intent intent = new Intent(this, EmailsActivity.class);
+            startActivity(intent);
+        } else if(id == R.id.nav_mails){
+            Intent intent = new Intent(this,EmailsActivity.class);
+            startActivity(intent);
+
+        } else if(id == R.id.nav_contacts){
+            Intent intent = new Intent(this, ContactsActivity.class);
+            startActivity(intent);
+
+        }else if(id == R.id.nav_folder){
+            Intent intent = new Intent(this, FoldersActivity.class);
+            startActivity(intent);
+
+        }else if (id == R.id.nav_settings){
+
+
+        }
+
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawerLayout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(mToggle.onOptionsItemSelected(item)){
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+    @Override
     public void onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)){
-            drawer.closeDrawer(GravityCompat.START);
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+            mDrawerLayout.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
@@ -208,4 +260,6 @@ public class EmailsActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+
 }
