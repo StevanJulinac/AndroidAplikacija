@@ -68,6 +68,11 @@
     <string name="Contacts">Contacts</string>
     <string name="Folders">Folders</string>
     <string name="Settings">Settings</string>
+    <string name="nav_first_name">First name</string>
+    <string name="nav_last_name">Last name</string>
+
+    <string name="navigation_drawer_open">Open drawer</string>
+    <string name="navigation_drawer_close">Close drawer</string>
 
 
 </resources>

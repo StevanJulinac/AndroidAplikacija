@@ -37,7 +37,8 @@
         </activity>
         <activity
             android:name=".EmailsActivity"
-            android:label="@string/title_activity_emails" />
+            android:label="@string/title_activity_emails"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".CreateFolderActivity"
             android:label="@string/title_activity_createFolder" />

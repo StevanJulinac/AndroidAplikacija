@@ -91,9 +91,7 @@
         android:layout_below="@id/edit_text_userName"
         android:layout_marginBottom="5dp"
         android:textSize="15sp"
-        android:hint="@string/password1"
-
-
+        android:hint="@string/password"
         />
 
 
