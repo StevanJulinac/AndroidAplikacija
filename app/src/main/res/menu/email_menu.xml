@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/delete"
+        android:icon="@drawable/ic_cancel_icon"
+        android:title="delete"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/reply"
+        android:icon="@drawable/ic_reply"
+        android:title="reply"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/reply_to_all"
+        android:icon="@drawable/ic_reply_all"
+        android:title="reply all"
+        app:showAsAction="ifRoom"/>
+    <item android:id="@+id/forward"
+        android:icon="@drawable/ic_forward"
+        android:title="forward"
+        app:showAsAction="ifRoom"/>
+
+</menu>

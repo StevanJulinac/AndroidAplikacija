@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 public class ContactsActivity extends AppCompatActivity
                         implements NavigationView.OnNavigationItemSelectedListener {
@@ -37,17 +39,29 @@ public class ContactsActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.navMenu);
         navigationView.setNavigationItemSelectedListener(this);
 
+        View mHeadView = navigationView.getHeaderView(0);
+        ImageView imgProfile = mHeadView.findViewById(R.id.nav_profile);
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoveToProfileActivity();
+
+            }
+        });
 
     }
+
+    private  void MoveToProfileActivity(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
         int id =item.getItemId();
 
-        if(id == R.id.nav_home) {
-            Intent intent = new Intent(this, EmailsActivity.class);
-            startActivity(intent);
-        } else if(id == R.id.nav_mails){
+       if(id == R.id.nav_mails){
             Intent intent = new Intent(this,EmailsActivity.class);
             startActivity(intent);
 
@@ -60,7 +74,8 @@ public class ContactsActivity extends AppCompatActivity
             startActivity(intent);
 
         }else if (id == R.id.nav_settings){
-
+            Intent intent = new Intent(this,SettingsActivity.class);
+            startActivity(intent);
 
         }
 

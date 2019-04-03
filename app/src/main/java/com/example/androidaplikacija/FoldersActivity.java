@@ -8,7 +8,11 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 public class FoldersActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
@@ -35,6 +39,28 @@ public class FoldersActivity extends AppCompatActivity implements
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.navMenuFolders);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View mHeadView = navigationView.getHeaderView(0);
+        ImageView imgProfile = mHeadView.findViewById(R.id.nav_profile);
+        imgProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MoveToProfileActivity();
+
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.folders_menu, menu);
+        return true;
+    }
+
+    private  void MoveToProfileActivity(){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -42,10 +68,7 @@ public class FoldersActivity extends AppCompatActivity implements
 
         int id =item.getItemId();
 
-        if(id == R.id.nav_home) {
-            Intent intent = new Intent(this, EmailsActivity.class);
-            startActivity(intent);
-        } else if(id == R.id.nav_mails){
+        if(id == R.id.nav_mails){
             Intent intent = new Intent(this,EmailsActivity.class);
             startActivity(intent);
 
@@ -58,7 +81,8 @@ public class FoldersActivity extends AppCompatActivity implements
             startActivity(intent);
 
         }else if (id == R.id.nav_settings){
-
+            Intent intent = new Intent(this,SettingsActivity.class);
+            startActivity(intent);
 
         }
 
