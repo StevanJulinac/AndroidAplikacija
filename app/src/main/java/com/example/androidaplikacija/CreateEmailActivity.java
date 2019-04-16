@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class CreateEmailActivity extends AppCompatActivity {
 
@@ -19,6 +21,23 @@ public class CreateEmailActivity extends AppCompatActivity {
         inflater.inflate(R.menu.create_email_menu, menu);
         return true;
     }
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.send:
+                Toast.makeText(CreateEmailActivity.this,
+                        "Successfully sent", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case  R.id.cancel:
+                Toast.makeText(CreateEmailActivity.this,
+                        "Email canceled", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
 
     @Override
     protected void onStart() {

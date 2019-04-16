@@ -124,6 +124,7 @@ public class FoldersActivity extends AppCompatActivity implements
             super.onBackPressed();
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();
