@@ -7,18 +7,11 @@
     tools:context=".EmailActivity"
     android:layout_margin="5dp">
 
-        <include
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/toolbar"
-            android:layout_marginBottom="10dp" />
-
         <Button
             android:id="@+id/btnBackEmailID"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_below="@id/toolbar"
+            android:layout_below="@id/appbar"
             android:text="@string/btnBackSting"/>
 
         <TextView
@@ -48,41 +41,5 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
             android:text="@string/txtView_emailContentString" />
-
-            <Button
-
-                android:id="@+id/btnReplyID"
-                android:layout_width="130dp"
-                android:layout_height="60dp"
-                android:text="@string/btnReplyString"
-                android:layout_toLeftOf="@id/btnReplyToAllID"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:layout_alignParentBottom="true"/>
-
-            <Button
-                android:layout_width="130dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnReplyToAllID"
-                android:layout_centerInParent="true"
-                android:text="@string/btnReplyToAllString"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:layout_alignParentBottom="true"/>
-
-            <Button
-                android:layout_width="130dp"
-                android:layout_height="60dp"
-                android:id="@+id/btnForwardID"
-                android:layout_toEndOf="@id/btnReplyToAllID"
-                android:text="@string/btnForwardString"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                android:textAllCaps="false"
-                android:layout_alignParentBottom="true"/>
-
-
 
 </RelativeLayout>

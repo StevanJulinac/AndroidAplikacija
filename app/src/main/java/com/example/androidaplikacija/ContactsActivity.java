@@ -2,6 +2,7 @@ package com.example.androidaplikacija;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -14,6 +15,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class ContactsActivity extends AppCompatActivity
                         implements NavigationView.OnNavigationItemSelectedListener {
@@ -50,6 +52,14 @@ public class ContactsActivity extends AppCompatActivity
             }
         });
 
+
+        FloatingActionButton contacts_fab = findViewById(R.id.fab_contacts);
+        contacts_fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(ContactsActivity.this,
+                        "New contact", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override

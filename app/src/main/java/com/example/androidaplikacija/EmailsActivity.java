@@ -3,6 +3,7 @@ package com.example.androidaplikacija;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class EmailsActivity extends AppCompatActivity implements
                                             NavigationView.OnNavigationItemSelectedListener{
@@ -140,6 +142,15 @@ public class EmailsActivity extends AppCompatActivity implements
             @Override
             public void onClick(View v) {
                 MoveToProfileActivity();
+            }
+        });
+
+
+        FloatingActionButton emails_fab = findViewById(R.id.fab_emails);
+        emails_fab.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(EmailsActivity.this,
+                        "New email", Toast.LENGTH_SHORT).show();
             }
         });
     }

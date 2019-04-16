@@ -19,6 +19,7 @@ public class EmailActivity extends AppCompatActivity {
         inflater.inflate(R.menu.email_menu, menu);
         return true;
     }
+
     @Override
     protected void onStart() {
         super.onStart();

@@ -2,7 +2,6 @@ package com.example.androidaplikacija;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -17,7 +16,7 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.contact_menu, menu);
+        inflater.inflate(R.menu.email_menu, menu);
         return true;
     }
 
