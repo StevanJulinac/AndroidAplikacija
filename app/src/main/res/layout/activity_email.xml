@@ -33,10 +33,25 @@
             android:layout_marginLeft="20dp"/>
 
         <TextView
+            android:id="@+id/txtView_dateTImeID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/txtView_emailSenderID"
+            android:layout_below="@id/txtView_emailTitleID"/>
+
+        <TextView
+            android:id="@+id/txtView_emailReceiver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtView_emailSenderID"
+            android:layout_marginLeft="25dp"
+            android:textSize="17sp"/>
+
+        <TextView
             android:id="@+id/txtView_emailContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtView_emailSenderID"
+            android:layout_below="@id/txtView_emailReceiver"
             android:textSize="21sp"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
