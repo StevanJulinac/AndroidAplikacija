@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -61,6 +62,14 @@ public class FoldersActivity extends AppCompatActivity implements
                         "New folder", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button contact_btn = findViewById(R.id.btn_folder);
+        contact_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                MoveToFolderActivity();
+            }
+        });
     }
 
 
@@ -74,6 +83,10 @@ public class FoldersActivity extends AppCompatActivity implements
 
     private  void MoveToProfileActivity(){
         Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+    private  void MoveToFolderActivity(){
+        Intent intent = new Intent(this, FolderActivity.class);
         startActivity(intent);
     }
 
@@ -105,13 +118,19 @@ public class FoldersActivity extends AppCompatActivity implements
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(mToggle.onOptionsItemSelected(item)){
             return true;
         }
-
-        return super.onOptionsItemSelected(item);
+        switch (item.getItemId()) {
+            case  R.id.new_folder:
+                Intent intent = new Intent(this, CreateFolderActivity.class);
+                startActivity(intent);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 

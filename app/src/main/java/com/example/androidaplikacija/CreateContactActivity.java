@@ -33,8 +33,8 @@ public class CreateContactActivity extends AppCompatActivity {
                 return true;
 
             case  R.id.cancel_contact:
-                Toast.makeText(CreateContactActivity.this,
-                        "Contact canceled", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, ContactsActivity.class);
+                startActivity(intent);
                 return true;
 
             default:

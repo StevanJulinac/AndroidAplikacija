@@ -1,12 +1,15 @@
 package com.example.androidaplikacija;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -40,6 +43,25 @@ public class FolderActivity extends AppCompatActivity {
         inflater.inflate(R.menu.folder_menu, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.edit_folder:
+                Toast.makeText(FolderActivity.this,
+                        "Edit", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case  R.id.back:
+                Intent intent = new Intent(this, FoldersActivity.class);
+                startActivity(intent);
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
+
     @Override
     protected void onStart() {
         super.onStart();

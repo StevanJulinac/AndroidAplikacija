@@ -1,13 +1,17 @@
 package com.example.androidaplikacija;
 
 import java.text.DateFormat;
+
+import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
@@ -37,6 +41,35 @@ public class EmailActivity extends AppCompatActivity {
         inflater.inflate(R.menu.email_menu, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.reply:
+                Toast.makeText(EmailActivity.this,
+                        "Replied", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case  R.id.delete:
+                Intent intent = new Intent(this, EmailsActivity.class);
+                startActivity(intent);
+                return true;
+
+            case R.id.reply_to_all:
+                Toast.makeText(EmailActivity.this,
+                        "Replied to all", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case R.id.forward:
+                Toast.makeText(EmailActivity.this,
+                        "Forwarded", Toast.LENGTH_SHORT).show();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
 
     @Override
     protected void onStart() {

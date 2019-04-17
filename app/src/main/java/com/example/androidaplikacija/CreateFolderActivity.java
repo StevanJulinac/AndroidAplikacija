@@ -36,7 +36,7 @@ public class CreateFolderActivity extends AppCompatActivity {
                         "Folder canceled", Toast.LENGTH_SHORT).show();
                 return true;
             case R.id.back:
-                Intent intent = new Intent(this, CreateFolderActivity.class);
+                Intent intent = new Intent(this, FoldersActivity.class);
                 startActivity(intent);
                 return true;
             default:

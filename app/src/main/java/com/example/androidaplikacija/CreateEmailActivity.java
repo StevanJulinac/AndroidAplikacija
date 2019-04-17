@@ -1,5 +1,6 @@
 package com.example.androidaplikacija;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -31,8 +32,8 @@ public class CreateEmailActivity extends AppCompatActivity {
                 return true;
 
             case  R.id.cancel:
-                Toast.makeText(CreateEmailActivity.this,
-                        "Email canceled", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, EmailsActivity.class);
+                startActivity(intent);
                 return true;
 
             default:

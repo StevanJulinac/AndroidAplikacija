@@ -22,17 +22,6 @@ import android.widget.Toast;
 public class EmailsActivity extends AppCompatActivity implements
                                             NavigationView.OnNavigationItemSelectedListener{
 
-    private Button BtnMove1;
-    private Button BtnMove2;
-    private Button BtnMove3;
-    private Button BtnMove4;
-    private Button BtnMove5;
-    private Button BtnMove6;
-    private Button BtnMove7;
-    private Button BtnMove8;
-    private Button BtnMove9;
-    private Button BtnMove10;
-
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
@@ -67,83 +56,7 @@ public class EmailsActivity extends AppCompatActivity implements
             }
         });
 
-        BtnMove1 = findViewById(R.id.btnContact);
-        BtnMove2 = findViewById(R.id.btnContacts);
-        BtnMove3 = findViewById(R.id.btnCreateFolder);
-        BtnMove4 = findViewById(R.id.btnSettings);
-        BtnMove5 = findViewById(R.id.btnFolders);
-        BtnMove6 = findViewById(R.id.btnCreateContact);
-        BtnMove7 = findViewById(R.id.btnCreateEmail);
-        BtnMove8 = findViewById(R.id.btnEmail);
-        BtnMove9 = findViewById(R.id.btnFolder);
-        BtnMove10 = findViewById(R.id.btnProfile);
 
-        BtnMove1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToContactActivity();
-            }
-        });
-
-        BtnMove2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToContactsActivity();
-            }
-        });
-
-        BtnMove3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToCreateFolderActivity();
-            }
-        });
-
-        BtnMove4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToSettingsActivity();
-            }
-        });
-
-        BtnMove5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToFoldersActivity();
-            }
-        });
-
-        BtnMove6.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                MoveToCreateContactActivity();
-            }
-        }) ;
-
-        BtnMove7.setOnClickListener(new  View.OnClickListener(){
-            public  void onClick(View v){
-                MoveToCreateEmailActivity();
-            }
-        });
-
-        BtnMove8.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                MoveToEmailActivity();
-            }
-        });
-
-        BtnMove9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToFolderActivity();
-            }
-        });
-
-        BtnMove10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                MoveToProfileActivity();
-            }
-        });
 
 
         FloatingActionButton emails_fab = findViewById(R.id.fab_emails);
@@ -151,6 +64,14 @@ public class EmailsActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 Toast.makeText(EmailsActivity.this,
                         "New email", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        Button contact_btn = findViewById(R.id.btn_email);
+        contact_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                MoveToEmailActivity();
             }
         });
     }
@@ -199,8 +120,20 @@ public class EmailsActivity extends AppCompatActivity implements
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+        switch (item.getItemId()) {
+
+            case R.id.filter:
+                Toast.makeText(EmailsActivity.this,
+                        "Filter", Toast.LENGTH_SHORT).show();
+                return true;
+
+            case  R.id.new_email:
+                Intent intent = new Intent(this, CreateEmailActivity.class);
+                startActivity(intent);
+
+            default:
+                return super.onOptionsItemSelected(item);
+    }}
 
 
 

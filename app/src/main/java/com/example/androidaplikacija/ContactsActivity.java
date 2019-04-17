@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -60,6 +61,15 @@ public class ContactsActivity extends AppCompatActivity
                         "New contact", Toast.LENGTH_SHORT).show();
             }
         });
+
+        Button contact_btn = findViewById(R.id.btn_contacts);
+        contact_btn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                MoveToContactActivity();
+            }
+        });
+
     }
 
     @Override
@@ -71,6 +81,10 @@ public class ContactsActivity extends AppCompatActivity
 
     private  void MoveToProfileActivity(){
         Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+    private  void MoveToContactActivity(){
+        Intent intent = new Intent(this, ContactActivity.class);
         startActivity(intent);
     }
 
@@ -108,8 +122,14 @@ public class ContactsActivity extends AppCompatActivity
             return true;
         }
 
+        switch (item.getItemId()) {
+            case  R.id.new_contact:
+                Intent intent = new Intent(this, CreateContactActivity.class);
+                startActivity(intent);
+
+            default:
         return super.onOptionsItemSelected(item);
-    }
+    }}
 
 
 
