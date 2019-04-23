@@ -1,6 +1,17 @@
 package klase;
 
-public class Contact {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Contact  implements Parcelable {
+
+    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
+        public Contact createFromParcel(Parcel in) {
+            return new Contact(in);
+        }
+        public Contact[] newArray(int size) {
+            return new Contact [size];
+        }};
 
     private String id;
     private String firstName;
@@ -8,7 +19,7 @@ public class Contact {
     private String display;
     private String email;
     private String format;
-    private Photo slika;
+    private String slika;
 
 
     public Contact(){
@@ -36,7 +47,7 @@ public class Contact {
         this.format = format;
     }
 
-    public Contact(String id, String firstName, String lastName, String display, String email, String format, Photo slika) {
+    public Contact(String id, String firstName, String lastName, String display, String email, String format, String slika) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -46,11 +57,11 @@ public class Contact {
         this.slika = slika;
     }
 
-    public Photo getSlika() {
+    public String getSlika() {
         return slika;
     }
 
-    public void setSlika(Photo slika) {
+    public void setSlika(String slika) {
         this.slika = slika;
     }
 
@@ -100,5 +111,40 @@ public class Contact {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public Contact(Parcel in){
+        this.id = in.readString();
+        this.firstName = in.readString();
+        this.lastName = in.readString();
+        this.display = in.readString();
+        this.email = in.readString();
+        this.format = in.readString();
+        this.slika = in.readString();
+    }
+
+    @Override
+    public int describeContents(){
+        return 0;
+    }
+    @Override
+    public void writeToParcel(Parcel dest,int flags){
+        dest.writeString(this.id);
+        dest.writeString(this.firstName);
+        dest.writeString(this.lastName);
+        dest.writeString(this.display);
+        dest.writeString(this.email);
+        dest.writeString(this.format);
+        dest.writeString(this.slika);
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", display='" + display + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

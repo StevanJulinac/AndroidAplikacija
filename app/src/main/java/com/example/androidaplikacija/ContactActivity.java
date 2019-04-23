@@ -68,7 +68,7 @@ public class ContactActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        EditText txtContact = (EditText) findViewById(R.id.insert_ContactID);
+      /*  EditText txtContact = (EditText) findViewById(R.id.insert_ContactID);
         txtContact.setText(kontakt1.getDisplay());
 
         EditText txtFirstName = (EditText) findViewById(R.id.insert_firstName);
@@ -78,7 +78,26 @@ public class ContactActivity extends AppCompatActivity {
         txtLastName.setText(kontakt1.getLastName());
 
         EditText txtEmail = (EditText) findViewById(R.id.insert_email);
-        txtEmail.setText(kontakt1.getEmail());
+        txtEmail.setText(kontakt1.getEmail());*/
+
+        //Bundle data = getIntent().getExtras();
+        //Contact contact = (Contact)data.getParcelable("contact");
+
+        Contact kontakt = (Contact) getIntent().getParcelableExtra("contact");
+
+        Toast.makeText(ContactActivity.this,kontakt.toString(),Toast.LENGTH_LONG).show();
+
+        EditText txtContact = (EditText) findViewById(R.id.insert_ContactID);
+        txtContact.setText(kontakt.getDisplay());
+
+        EditText txtFirstName = (EditText) findViewById(R.id.insert_firstName);
+        txtFirstName.setText(kontakt.getFirstName());
+
+        EditText txtLastName = (EditText) findViewById(R.id.insert_lastName);
+        txtLastName.setText(kontakt.getLastName());
+
+        EditText txtEmail = (EditText) findViewById(R.id.insert_email);
+        txtEmail.setText(kontakt.getEmail());
 
 
 

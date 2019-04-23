@@ -14,15 +14,25 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import arrayAdapter.ContactArrayAdapter;
+import klase.Contact;
 
 public class ContactsActivity extends AppCompatActivity
                         implements NavigationView.OnNavigationItemSelectedListener {
 
+
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    //ArrayList<Contact> contacts;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,11 +72,38 @@ public class ContactsActivity extends AppCompatActivity
             }
         });
 
-        Button contact_btn = findViewById(R.id.btn_contacts);
-        contact_btn.setOnClickListener(new View.OnClickListener(){
+        //Button contact_btn = findViewById(R.id.btn_);
+        /*contact_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 MoveToContactActivity();
+            }
+        });*/
+
+        final ArrayList<Contact> contacts = new ArrayList<Contact>();
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+
+        ContactArrayAdapter contactAdapter = new ContactArrayAdapter(this, contacts);
+
+        ListView listView = (ListView) findViewById(R.id.listContacts);
+        listView.setAdapter(contactAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Contact kontakt = (Contact) parent.getItemAtPosition(position);
+                //Toast.makeText(ContactsActivity.this,kontakt.toString(),Toast.LENGTH_LONG).show();
+                Intent intent  = new Intent(ContactsActivity.this, ContactActivity.class);
+                intent.putExtra("contact",kontakt);
+                startActivity(intent);
+
             }
         });
 
@@ -159,6 +196,9 @@ public class ContactsActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+
+
     }
 
     @Override
