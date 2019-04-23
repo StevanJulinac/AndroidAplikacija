@@ -30,6 +30,9 @@ public class FolderActivity extends AppCompatActivity {
 
 
     Folder folder1 = new Folder("1","moj prvi folder","");
+    Folder folder2 = new Folder("1","moj prvi folder","");
+    Folder folder3 = new Folder("1","moj prvi folder","");
+    ArrayList<Folder>folders = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,11 @@ public class FolderActivity extends AppCompatActivity {
         poruke.add(poruka3);
         poruke.add(poruka4);
         poruke.add(poruka5);
+
+
+        folders.add(folder1);
+        folders.add(folder2);
+        folders.add(folder3);
 
         TextView folderName = (TextView)findViewById(R.id.folderId);
         folderName.setText(folder1.getName());
