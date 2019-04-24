@@ -22,17 +22,12 @@ public class FolderActivity extends AppCompatActivity {
     Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
     Contact kontakt2 = new Contact("2","Pera","Peric","1","1","1");
     ArrayList<Message> poruke = new ArrayList<Message>();
-    Message poruka1 = new Message("a","aa", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    Message poruka1 = new Message("a","aa", Calendar.getInstance().getTime(),kontakt2,kontakt1);
     Message poruka2 = new Message("b","bb", Calendar.getInstance().getTime(),kontakt1,kontakt2);
-    Message poruka3 = new Message("v","vv", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    Message poruka3 = new Message("v","vv", Calendar.getInstance().getTime(),kontakt2,kontakt1);
     Message poruka4 = new Message("g","gg", Calendar.getInstance().getTime(),kontakt1,kontakt2);
-    Message poruka5 = new Message("d","dd", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    Message poruka5 = new Message("d","dd", Calendar.getInstance().getTime(),kontakt2,kontakt1);
 
-
-    Folder folder1 = new Folder("1","moj prvi folder","");
-    Folder folder2 = new Folder("1","moj prvi folder","");
-    Folder folder3 = new Folder("1","moj prvi folder","");
-    ArrayList<Folder>folders = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,13 +80,10 @@ public class FolderActivity extends AppCompatActivity {
         poruke.add(poruka4);
         poruke.add(poruka5);
 
-
-        folders.add(folder1);
-        folders.add(folder2);
-        folders.add(folder3);
+        Folder folder = (Folder) getIntent().getParcelableExtra("folder");
 
         TextView folderName = (TextView)findViewById(R.id.folderId);
-        folderName.setText(folder1.getName());
+        folderName.setText(folder.getName());
 
         ListView lw = (ListView)findViewById(R.id.listViewEmails);
         ArrayAdapter<Message> arrayAdapter = new ArrayAdapter<Message>(this,android.R.layout.simple_list_item_1,poruke);

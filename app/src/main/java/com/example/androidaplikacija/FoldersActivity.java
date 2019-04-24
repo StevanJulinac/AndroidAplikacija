@@ -13,15 +13,28 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+
+import arrayAdapter.FolderArrayAdapter;
+import klase.Folder;
 
 public class FoldersActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+
+    final ArrayList<Folder> folders = new ArrayList<Folder>();
+    Folder folder1 = new Folder("1","moj prvi folder","");
+    Folder folder2 = new Folder("2","moj drugi folder","");
+    Folder folder3 = new Folder("3","moj treci folder","");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,13 +76,6 @@ public class FoldersActivity extends AppCompatActivity implements
             }
         });
 
-        Button contact_btn = findViewById(R.id.btn_folder);
-        contact_btn.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                MoveToFolderActivity();
-            }
-        });
     }
 
 
@@ -85,10 +91,7 @@ public class FoldersActivity extends AppCompatActivity implements
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
-    private  void MoveToFolderActivity(){
-        Intent intent = new Intent(this, FolderActivity.class);
-        startActivity(intent);
-    }
+
 
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -157,6 +160,26 @@ public class FoldersActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+
+        folders.add(folder1);
+        folders.add(folder2);
+        folders.add(folder3);
+
+        FolderArrayAdapter folderAdapter = new FolderArrayAdapter(this, folders);
+
+        ListView listView = (ListView) findViewById(R.id.listViewFolders);
+        listView.setAdapter(folderAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Folder folder = (Folder) parent.getItemAtPosition(position);
+                Intent intent  = new Intent(FoldersActivity.this, FolderActivity.class);
+                intent.putExtra("folder",folder);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override

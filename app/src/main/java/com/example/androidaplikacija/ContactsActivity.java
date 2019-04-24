@@ -81,14 +81,14 @@ public class ContactsActivity extends AppCompatActivity
         });*/
 
         final ArrayList<Contact> contacts = new ArrayList<Contact>();
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Milan","Julinac","display1","milanjulinac996@gmail.com","123","slika1"));
+        contacts.add(new Contact("1","Dude","Hasg","display2","DudeHASG@gmail.com","123","slika1"));
+        contacts.add(new Contact("2","Guy","Joqwe","display4","GUYGUY99@gmail.com","123","slika1"));
+        contacts.add(new Contact("3","Man","Cann","display5","MANCANN@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Idjit","Profl","display6","IDJIT96@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Someone","Poet","display7","SOMEONPO@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","Me","Igrow","display8","IGROWME@gmail.com","123","slika1"));
+        contacts.add(new Contact("0","You","Huehue","display9","HUEHUEHUE@gmail.com","123","slika1"));
 
 
         ContactArrayAdapter contactAdapter = new ContactArrayAdapter(this, contacts);
