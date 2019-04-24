@@ -1,9 +1,12 @@
 package com.example.androidaplikacija;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.Toast;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -19,6 +22,20 @@ public class ProfileActivity extends AppCompatActivity {
         inflater.inflate(R.menu.profile_menu, menu);
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case R.id.logout:
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }}
 
     @Override
     protected void onStart() {

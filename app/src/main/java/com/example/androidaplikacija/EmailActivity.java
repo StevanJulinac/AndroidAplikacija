@@ -27,7 +27,7 @@ public class EmailActivity extends AppCompatActivity {
 
     Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
     Contact kontakt2 = new Contact("2","Pera","Peric","1","1","1");
-    Message poruka = new Message("a","b", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    //Message poruka = new Message("a","b", Calendar.getInstance().getTime(),kontakt1,kontakt2);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +88,8 @@ public class EmailActivity extends AppCompatActivity {
 
         DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
 
+        Message poruka = (Message) getIntent().getParcelableExtra("message");
+
         TextView txtContent = (TextView)findViewById(R.id.txtView_emailContent);
         txtContent.setText(poruka.getContent());
 
@@ -103,6 +105,8 @@ public class EmailActivity extends AppCompatActivity {
         TextView txtDateTime = (TextView)findViewById(R.id.txtView_dateTImeID);
         String strDate = dateFormat.format(poruka.getDatumVreme());
         txtDateTime.setText(strDate);
+
+
 
     }
 

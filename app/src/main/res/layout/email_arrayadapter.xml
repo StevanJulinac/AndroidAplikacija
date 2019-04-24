@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp">
+
+    <TextView
+        android:id="@+id/aaFrom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Posaljilac"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/aaTo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aaFrom"
+        android:text="Primalac"
+        android:textSize="15sp"/>
+
+    <TextView
+        android:id="@+id/aaSubject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/aaTo"
+        android:text="Subject"
+        android:textSize="20sp"/>
+
+</RelativeLayout>

@@ -15,9 +15,19 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Date;
+
+import arrayAdapter.ContactArrayAdapter;
+import arrayAdapter.EmailArrayAdapter;
+import klase.Contact;
+import klase.Message;
 
 public class EmailsActivity extends AppCompatActivity implements
                                             NavigationView.OnNavigationItemSelectedListener{
@@ -67,11 +77,27 @@ public class EmailsActivity extends AppCompatActivity implements
             }
         });
 
-        Button contact_btn = findViewById(R.id.btn_email);
-        contact_btn.setOnClickListener(new View.OnClickListener(){
+        final ArrayList<Message> emails = new ArrayList<Message>();
+        Contact kontakt1 = new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1");
+        Contact kontakt2 = new Contact("0","Stevan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1");
+        emails.add(new Message("012", kontakt1, kontakt2, new ArrayList<Contact>(), new ArrayList<Contact>(), new Date(), "Subject1", "content", null, null, null, null));
+        emails.add(new Message("012", kontakt2, kontakt1, new ArrayList<Contact>(), new ArrayList<Contact>(), new Date(), "Subject2", "content", null, null, null, null));
+        emails.add(new Message("012", kontakt1, kontakt2, new ArrayList<Contact>(), new ArrayList<Contact>(), new Date(), "Subject3", "content", null, null, null, null));
+
+        EmailArrayAdapter emailAdapter = new EmailArrayAdapter(this, emails);
+
+        ListView listView = (ListView) findViewById(R.id.listEmails);
+        listView.setAdapter(emailAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                MoveToEmailActivity();
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Message poruka = (Message) parent.getItemAtPosition(position);
+
+                Intent intent  = new Intent(EmailsActivity.this, EmailActivity.class);
+                intent.putExtra("message",poruka);
+                startActivity(intent);
+
             }
         });
     }

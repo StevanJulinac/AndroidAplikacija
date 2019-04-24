@@ -90,6 +90,7 @@ public class ContactsActivity extends AppCompatActivity
         contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
         contacts.add(new Contact("0","Milan","Julinac","displaty1","milanjulinac996@gmail.com","123","slika1"));
 
+
         ContactArrayAdapter contactAdapter = new ContactArrayAdapter(this, contacts);
 
         ListView listView = (ListView) findViewById(R.id.listContacts);
