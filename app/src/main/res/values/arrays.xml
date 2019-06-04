@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <bool name="Auto">
+
+    </bool>
+
     <string-array name="list_refresh_time_entries">
         <item>1 min</item>
         <item>5 min</item>

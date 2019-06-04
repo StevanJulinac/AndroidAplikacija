@@ -2,8 +2,14 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory
-        android:title="Refresh time"
+        android:title="Refresh"
         android:key="refresh_settings">
+
+        <CheckBoxPreference
+            android:dialogTitle="Refresh time"
+            android:key="autoRefresh_box"
+            android:title="Automatic refresh:"
+            android:defaultValue="true"/>
 
         <ListPreference
             android:dialogTitle="Refresh time"
@@ -12,8 +18,8 @@
             android:key="RefreshKey"
             android:title="Refresh time:"
             android:summary="%s"
-            android:defaultValue="1"/>
-
+            android:defaultValue="1"
+            android:dependency="autoRefresh_box"/>
     </PreferenceCategory>
 
     <PreferenceCategory
@@ -28,7 +34,6 @@
             android:title="Sort by date:"
             android:summary="%s"
             android:defaultValue="1"/>
-
     </PreferenceCategory>
 
 </PreferenceScreen>

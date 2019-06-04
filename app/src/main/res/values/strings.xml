@@ -60,6 +60,7 @@
     <string name="mContacts">Contacts</string>
     <string name="mFolders">Folders</string>
     <string name="mSettings">Settings</string>
+    <string name="mLogout">Logout</string>
 
    //Create Folder Activity
     <string name="folder_name">Folder Name:</string>
