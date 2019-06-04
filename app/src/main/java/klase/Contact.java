@@ -1,17 +1,8 @@
 package klase;
 
-import android.os.Parcel;
-import android.os.Parcelable;
+import java.io.Serializable;
 
-public class Contact  implements Parcelable {
-
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Contact createFromParcel(Parcel in) {
-            return new Contact(in);
-        }
-        public Contact[] newArray(int size) {
-            return new Contact [size];
-        }};
+public class Contact  implements Serializable {
 
     private String id;
     private String firstName;
@@ -111,31 +102,6 @@ public class Contact  implements Parcelable {
 
     public String getLastName() {
         return lastName;
-    }
-
-    public Contact(Parcel in){
-        this.id = in.readString();
-        this.firstName = in.readString();
-        this.lastName = in.readString();
-        this.display = in.readString();
-        this.email = in.readString();
-        this.format = in.readString();
-        this.slika = in.readString();
-    }
-
-    @Override
-    public int describeContents(){
-        return 0;
-    }
-    @Override
-    public void writeToParcel(Parcel dest,int flags){
-        dest.writeString(this.id);
-        dest.writeString(this.firstName);
-        dest.writeString(this.lastName);
-        dest.writeString(this.display);
-        dest.writeString(this.email);
-        dest.writeString(this.format);
-        dest.writeString(this.slika);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package klase;
 
-public class Rule {
+import java.io.Serializable;
+
+public class Rule implements Serializable {
 
     private String id;
     private Condition condition;

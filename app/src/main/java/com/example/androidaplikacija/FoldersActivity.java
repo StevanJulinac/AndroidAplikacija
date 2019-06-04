@@ -73,6 +73,7 @@ public class FoldersActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 Toast.makeText(FoldersActivity.this,
                         "New folder", Toast.LENGTH_SHORT).show();
+                MoveToCreateFolderActivity();
             }
         });
 
@@ -89,6 +90,11 @@ public class FoldersActivity extends AppCompatActivity implements
 
     private  void MoveToProfileActivity(){
         Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    private void MoveToCreateFolderActivity(){
+        Intent intent = new Intent(this, CreateContactActivity.class);
         startActivity(intent);
     }
 

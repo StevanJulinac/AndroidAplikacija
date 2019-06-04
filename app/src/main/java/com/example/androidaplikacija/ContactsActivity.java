@@ -69,6 +69,7 @@ public class ContactsActivity extends AppCompatActivity
             public void onClick(View v) {
                 Toast.makeText(ContactsActivity.this,
                         "New contact", Toast.LENGTH_SHORT).show();
+                MoveToCreateContactActivity();
             }
         });
 
@@ -123,6 +124,11 @@ public class ContactsActivity extends AppCompatActivity
     }
     private  void MoveToContactActivity(){
         Intent intent = new Intent(this, ContactActivity.class);
+        startActivity(intent);
+    }
+
+    private void MoveToCreateContactActivity(){
+        Intent intent = new Intent(this, CreateContactActivity.class);
         startActivity(intent);
     }
 

@@ -74,6 +74,7 @@ public class EmailsActivity extends AppCompatActivity implements
             public void onClick(View v) {
                 Toast.makeText(EmailsActivity.this,
                         "New email", Toast.LENGTH_SHORT).show();
+                MoveToCreateEmailActivity();
             }
         });
 
@@ -177,11 +178,6 @@ public class EmailsActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    private void MoveToFolderActivity(){
-        Intent intent = new Intent(EmailsActivity.this, FolderActivity.class);
-        startActivity(intent);
-    }
-
     private  void MoveToEmailActivity(){
         Intent intent = new Intent(EmailsActivity.this, EmailActivity.class);
         startActivity(intent);
@@ -192,35 +188,6 @@ public class EmailsActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    private void MoveToCreateContactActivity() {
-        Intent intent = new Intent(EmailsActivity.this, CreateContactActivity.class);
-        startActivity(intent);
-    }
-
-    private void MoveToContactActivity(){
-        Intent intent = new Intent(EmailsActivity.this, ContactActivity.class);
-        startActivity(intent);
-    }
-
-    private void MoveToContactsActivity(){
-        Intent intent = new Intent(EmailsActivity.this, ContactsActivity.class);
-        startActivity(intent);
-    }
-
-    private void MoveToCreateFolderActivity(){
-        Intent intent = new Intent(EmailsActivity.this,CreateFolderActivity.class);
-        startActivity(intent);
-    }
-
-    private void MoveToSettingsActivity(){
-        Intent intent = new Intent(EmailsActivity.this,SettingsActivity.class);
-        startActivity(intent);
-    }
-
-    private void MoveToFoldersActivity(){
-        Intent intent = new Intent(EmailsActivity.this,FoldersActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     protected void onStart() {

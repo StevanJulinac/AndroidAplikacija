@@ -1,17 +1,9 @@
 package klase;
 
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Folder implements Parcelable {
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Folder createFromParcel(Parcel in) {
-            return new Folder(in);
-        }
-        public Folder[] newArray(int size) {
-            return new Folder [size];
-        }};
+import java.io.Serializable;
 
+public class Folder implements Serializable {
 
     private String id;
     private String name;
@@ -52,22 +44,4 @@ public class Folder implements Parcelable {
     public void setName(String name) {
         this.name = name;
     }
-
-    public Folder(Parcel in){
-        this.id = in.readString();
-        this.name = in.readString();
-
-    }
-
-    @Override
-    public int describeContents(){
-        return 0;
-    }
-    @Override
-    public void writeToParcel(Parcel dest,int flags){
-        dest.writeString(this.id);
-        dest.writeString(this.name);
-
-    }
-
 }

@@ -1,6 +1,8 @@
 package klase;
 
-public class Operation{
+import java.io.Serializable;
+
+public class Operation implements Serializable {
 
     private boolean move;
     private boolean copy;

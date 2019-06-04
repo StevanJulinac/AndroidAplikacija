@@ -1,6 +1,8 @@
 package klase;
 
-public class Account {
+import java.io.Serializable;
+
+public class Account implements Serializable {
 
     private String id;
     private String smtp;

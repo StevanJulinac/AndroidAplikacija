@@ -1,6 +1,8 @@
 package klase;
 
-public class Condition {
+import java.io.Serializable;
+
+public class Condition implements Serializable {
 
     private Contact to;
     private Contact from;

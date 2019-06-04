@@ -2,22 +2,12 @@ package klase;
 
 import android.os.Build;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class Message implements Parcelable {
-
-    public static final Parcelable.Creator CREATOR = new Parcelable.Creator() {
-        public Message createFromParcel(Parcel in) {
-            return new Message(in);
-        }
-        public Message[] newArray(int size) {
-            return new Message [size];
-        }};
+public class Message implements Serializable {
 
     private String id;
     private Contact from;
@@ -168,43 +158,5 @@ public class Message implements Parcelable {
     public void setContent(String content) {
         this.content = content;
     }
-
-
-    public Message(Parcel in){
-        this.id = in.readString();
-        this.from = in.readParcelable(Contact.class.getClassLoader());
-        this.to = in.readParcelable(Contact.class.getClassLoader());
-        this.cc = in.readArrayList(Message.class.getClassLoader());
-        this.bcc = in.readArrayList(Message.class.getClassLoader());
-        this.datumVreme = (java.util.Date) in.readSerializable();
-        this.subject = in.readString();
-        this.content = in.readString();
-        this.tag = in.readParcelable(Message.class.getClassLoader());
-        this.dodatak = in.readParcelable(Message.class.getClassLoader());
-        this.akaunt = in.readParcelable(Message.class.getClassLoader());
-        this.folder = in.readParcelable(Message.class.getClassLoader());
-    }
-
-
-    @Override
-    public int describeContents(){
-        return 0;
-    }
-    @Override
-    public void writeToParcel(Parcel dest,int flags){
-        dest.writeString(this.id);
-        dest.writeParcelable(this.from,flags);
-        dest.writeParcelable(this.to,flags);
-        dest.writeList(this.cc);
-        dest.writeList(this.bcc);
-        dest.writeSerializable(datumVreme);
-        dest.writeString(this.subject);
-        dest.writeString(this.content);
-        dest.writeParcelable((Parcelable) this.tag,flags);
-        dest.writeParcelable((Parcelable) this.dodatak,flags);
-        dest.writeParcelable((Parcelable) this.akaunt,flags);
-        dest.writeParcelable((Parcelable) this.folder,flags);
-    }
-
 
 }

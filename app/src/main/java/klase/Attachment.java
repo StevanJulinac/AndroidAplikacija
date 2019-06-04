@@ -2,7 +2,9 @@ package klase;
 
 import android.util.Base64;
 
-public class Attachment {
+import java.io.Serializable;
+
+public class Attachment implements Serializable {
 
     private String id;
     private Base64 base64;
