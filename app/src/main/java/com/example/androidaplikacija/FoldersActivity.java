@@ -96,7 +96,7 @@ public class FoldersActivity extends AppCompatActivity implements
     }
 
     private void MoveToCreateFolderActivity(){
-        Intent intent = new Intent(this, CreateContactActivity.class);
+        Intent intent = new Intent(this, CreateFolderActivity.class);
         startActivity(intent);
     }
 
