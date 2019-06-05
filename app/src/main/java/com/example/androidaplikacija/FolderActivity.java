@@ -13,10 +13,17 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import klase.Contact;
 import klase.Folder;
 import klase.Message;
+import placeholder.FolderPlaceHolder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FolderActivity extends AppCompatActivity {
     Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
@@ -74,7 +81,13 @@ public class FolderActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        poruke.add(poruka1);
+        TextView folderName = (TextView)findViewById(R.id.folderId);
+
+        ListView lw = (ListView)findViewById(R.id.listViewEmails);
+
+
+
+       /* poruke.add(poruka1);
         poruke.add(poruka2);
         poruke.add(poruka3);
         poruke.add(poruka4);
@@ -87,7 +100,7 @@ public class FolderActivity extends AppCompatActivity {
 
         ListView lw = (ListView)findViewById(R.id.listViewEmails);
         ArrayAdapter<Message> arrayAdapter = new ArrayAdapter<Message>(this,android.R.layout.simple_list_item_1,poruke);
-        lw.setAdapter(arrayAdapter);
+        lw.setAdapter(arrayAdapter);*/
 
     }
 

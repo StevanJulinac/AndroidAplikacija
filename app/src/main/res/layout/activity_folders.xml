@@ -32,6 +32,8 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay"/>
 
         </android.support.design.widget.AppBarLayout>
+        
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_folders"
@@ -43,6 +45,13 @@
             android:layout_alignParentBottom="true"
             >
         </android.support.design.widget.FloatingActionButton>
+
+        <TextView
+            android:id="@+id/testFolders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="231212"/>
 
         <ListView
             android:id="@+id/listViewFolders"

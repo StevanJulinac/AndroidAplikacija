@@ -44,4 +44,13 @@ public class Folder implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Folder{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", parent='" + parent + '\'' +
+                '}';
+    }
 }

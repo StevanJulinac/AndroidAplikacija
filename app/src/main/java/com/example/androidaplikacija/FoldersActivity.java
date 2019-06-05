@@ -17,12 +17,20 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import arrayAdapter.FolderArrayAdapter;
 import klase.Folder;
+import placeholder.FolderPlaceHolder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FoldersActivity extends AppCompatActivity implements
         NavigationView.OnNavigationItemSelectedListener {
@@ -30,7 +38,7 @@ public class FoldersActivity extends AppCompatActivity implements
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
 
-    final ArrayList<Folder> folders = new ArrayList<Folder>();
+    ArrayList<Folder> folders = new ArrayList<Folder>();
     Folder folder1 = new Folder("1","moj prvi folder","");
     Folder folder2 = new Folder("2","moj drugi folder","");
     Folder folder3 = new Folder("3","moj treci folder","");
@@ -167,9 +175,38 @@ public class FoldersActivity extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
 
-        folders.add(folder1);
-        folders.add(folder2);
-        folders.add(folder3);
+        //folders.add(folder1);
+       // folders.add(folder2);
+
+        final TextView resultat = findViewById(R.id.testFolders);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.47:8080/Termin04/folderservice/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        FolderPlaceHolder folderPlaceHolder = retrofit.create(FolderPlaceHolder.class);
+
+        Call<ArrayList<Folder>> call = folderPlaceHolder.getFolders();
+        call.enqueue(new Callback<ArrayList<Folder>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Folder>> call, Response<ArrayList<Folder>> response) {
+                if(!response.isSuccessful()){
+                    resultat.setText(response.code());
+                    return;
+                }
+                folders = response.body();
+                for(Folder f : folders){
+                    resultat.setText(f.toString());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Folder>> call, Throwable t) {
+                return;
+            }
+        });
 
         FolderArrayAdapter folderAdapter = new FolderArrayAdapter(this, folders);
 
