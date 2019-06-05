@@ -3,6 +3,7 @@
     package="com.example.androidaplikacija">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -13,23 +14,29 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ContactActivity"
-            android:label="@string/title_activity_contact" />
+            android:label="@string/title_activity_contact"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/title_activity_login"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".CreateContactActivity"
-            android:label="@string/title_activity_createContact" />
+            android:label="@string/title_activity_createContact"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".ContactsActivity"
             android:label="@string/title_activity_contacts"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile" />
+            android:label="@string/title_activity_profile"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".EmailActivity"
-            android:label="@string/title_activity_email" />
+            android:label="@string/title_activity_email"
+            android:launchMode="singleTask"/>
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,23 +47,29 @@
         <activity
             android:name=".EmailsActivity"
             android:label="@string/title_activity_emails"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".CreateFolderActivity"
-            android:label="@string/title_activity_createFolder" />
+            android:label="@string/title_activity_createFolder"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".CreateEmailActivity"
-            android:label="@string/title_activity_createEmail" />
+            android:label="@string/title_activity_createEmail"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" />
+            android:label="@string/title_activity_settings"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".FolderActivity"
-            android:label="@string/title_activity_folder" />
+            android:label="@string/title_activity_folder"
+            android:launchMode="singleTask"/>
         <activity
             android:name=".FoldersActivity"
             android:label="@string/title_activity_folders"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"/>
 
     </application>
 

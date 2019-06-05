@@ -3,9 +3,12 @@ package com.example.androidaplikacija;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class CreateEmailActivity extends AppCompatActivity {
@@ -14,6 +17,11 @@ public class CreateEmailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_email);
+
+    }
+
+    public static boolean isValidEmail(CharSequence target) {
+        return (!TextUtils.isEmpty(target) && Patterns.EMAIL_ADDRESS.matcher(target).matches());
     }
 
     @Override
@@ -24,21 +32,35 @@ public class CreateEmailActivity extends AppCompatActivity {
     }
     public boolean onOptionsItemSelected(MenuItem item) {
 
+         String email;
+         EditText email_txt = findViewById(R.id.editTextTo);
+
         switch (item.getItemId()) {
 
             case R.id.send:
-                Toast.makeText(CreateEmailActivity.this,
-                        "Successfully sent", Toast.LENGTH_SHORT).show();
+                email = email_txt.getText().toString();
+                if (isValidEmail(email)) {
+                    Toast.makeText(CreateEmailActivity.this,
+                            "Successfully sent", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, EmailsActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    Toast.makeText(CreateEmailActivity.this,
+                            "Invalid recipient address", Toast.LENGTH_SHORT).show();
+                }
                 return true;
 
             case  R.id.cancel:
                 Intent intent = new Intent(this, EmailsActivity.class);
                 startActivity(intent);
+                finish();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }}
+
 
     @Override
     protected void onStart() {

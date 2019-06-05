@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     String user = mPreferences.getString("UsernameBRO", "default");
                     Log.d(TAG, "onCreate: name: " + user);
+                    finish();
                 }
                 else {
                     Toast.makeText(LoginActivity.this, "Wrong password or username", Toast.LENGTH_SHORT).show();

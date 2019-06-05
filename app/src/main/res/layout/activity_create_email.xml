@@ -7,18 +7,11 @@
     tools:context=".CreateEmailActivity">
 
 
-    <Button
-        android:id="@+id/btnBackID"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/toolbar"
-        android:text="@string/btnBackSting"/>
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/txtViewTo"
-        android:layout_below="@id/btnBackID"
+        android:layout_below="@id/toolbar"
         android:textSize="25sp"
         android:text="@string/txtView_createEmailToString"/>
 
@@ -28,7 +21,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:layout_toEndOf="@id/txtViewTo"
-        android:layout_below="@id/btnBackID"/>
+        android:layout_below="@id/toolbar"/>
 
     <EditText
         android:layout_width="match_parent"

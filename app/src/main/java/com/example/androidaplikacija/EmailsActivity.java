@@ -1,6 +1,7 @@
 package com.example.androidaplikacija;
 
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import arrayAdapter.ContactArrayAdapter;
 import arrayAdapter.EmailArrayAdapter;
@@ -169,11 +171,12 @@ public class EmailsActivity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
-        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+
+//        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)){
+//            mDrawerLayout.closeDrawer(GravityCompat.START);
+//        } else {
+//            super.onBackPressed();
+//        }
     }
 
     private  void MoveToProfileActivity(){
