@@ -17,17 +17,22 @@ import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import klase.Contact;
 import klase.Message;
+import placeholder.MessagePlaceHolder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EmailActivity extends AppCompatActivity {
 
-    Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
-    Contact kontakt2 = new Contact("2","Pera","Peric","1","1","1");
-    //Message poruka = new Message("a","b", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    Message poruka = new Message();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +78,7 @@ public class EmailActivity extends AppCompatActivity {
 
     @Override
     protected void onStart() {
+
         super.onStart();
     }
 
@@ -85,10 +91,37 @@ public class EmailActivity extends AppCompatActivity {
     protected void onResume() {
 
         super.onResume();
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("message");
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.47:8080/RestService/messageservice/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        Message poruka = (Message) getIntent().getParcelableExtra("message");
+        MessagePlaceHolder messagePlaceHolder = retrofit.create(MessagePlaceHolder.class);
+
+        Call<Message> call = messagePlaceHolder.getMessage(id);
+        call.enqueue(new Callback<Message>() {
+            @Override
+            public void onResponse(Call<Message> call, Response<Message> response) {
+                if(!response.isSuccessful()){
+                    return;
+                }
+                poruka = response.body();
+                Toast.makeText(EmailActivity.this,poruka.toString(),Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<Message> call, Throwable t) {
+
+            }
+        });
+
+        //Toast.makeText(EmailActivity.this,poruka.getFrom().toString(),Toast.LENGTH_SHORT).show();
+        //DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd hh:mm");
+
 
         TextView txtContent = (TextView)findViewById(R.id.txtView_emailContent);
         txtContent.setText(poruka.getContent());
@@ -97,16 +130,14 @@ public class EmailActivity extends AppCompatActivity {
         txtTitle.setText(poruka.getSubject());
 
         TextView txtSender = (TextView)findViewById(R.id.txtView_emailSenderID);
-        txtTitle.setText(poruka.getTo().getFirstName());
+        //txtTitle.setText(poruka.getTo().getFirstName());
 
         TextView txtReceiver = (TextView)findViewById(R.id.txtView_emailReceiver);
-        txtReceiver.setText(poruka.getFrom().getFirstName());
+        //txtReceiver.setText(poruka.getFrom().getFirstName());
 
         TextView txtDateTime = (TextView)findViewById(R.id.txtView_dateTImeID);
-        String strDate = dateFormat.format(poruka.getDatumVreme());
-        txtDateTime.setText(strDate);
-
-
+        //String strDate = dateFormat.format(poruka.getDatumVreme());
+        //txtDateTime.setText(strDate);
 
     }
 

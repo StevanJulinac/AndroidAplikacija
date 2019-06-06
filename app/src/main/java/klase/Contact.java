@@ -14,28 +14,6 @@ public class Contact  implements Serializable {
 
 
     public Contact(){
-        this.id = "";
-        this.firstName = "";
-        this.lastName = "";
-        this.display = "";
-        this.email = "";
-        this.format = "";
-    }
-
-    public Contact( String firstName, String lastName, String display, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.display = display;
-        this.email = email;
-    }
-
-    public Contact(String id, String firstName, String lastName, String display, String email, String format) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.display = display;
-        this.email = email;
-        this.format = format;
     }
 
     public Contact(String id, String firstName, String lastName, String display, String email, String format, String slika) {

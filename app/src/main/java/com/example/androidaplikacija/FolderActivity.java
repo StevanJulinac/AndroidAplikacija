@@ -19,6 +19,7 @@ import klase.Contact;
 import klase.Folder;
 import klase.Message;
 import placeholder.FolderPlaceHolder;
+import placeholder.MessagePlaceHolder;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -26,14 +27,16 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class FolderActivity extends AppCompatActivity {
-    Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
-    Contact kontakt2 = new Contact("2","Pera","Peric","1","1","1");
+    //Contact kontakt1 = new Contact("1","Marko","Markovic","1","1","1");
+    //Contact kontakt2 = new Contact("2","Pera","Peric","1","1","1");
     ArrayList<Message> poruke = new ArrayList<Message>();
-    Message poruka1 = new Message("a","aa", Calendar.getInstance().getTime(),kontakt2,kontakt1);
-    Message poruka2 = new Message("b","bb", Calendar.getInstance().getTime(),kontakt1,kontakt2);
-    Message poruka3 = new Message("v","vv", Calendar.getInstance().getTime(),kontakt2,kontakt1);
-    Message poruka4 = new Message("g","gg", Calendar.getInstance().getTime(),kontakt1,kontakt2);
-    Message poruka5 = new Message("d","dd", Calendar.getInstance().getTime(),kontakt2,kontakt1);
+    //Message poruka1 = new Message("a","aa", Calendar.getInstance().getTime(),kontakt2,kontakt1);
+    //Message poruka2 = new Message("b","bb", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+    //Message poruka3 = new Message("v","vv", Calendar.getInstance().getTime(),kontakt2,kontakt1);
+    //Message poruka4 = new Message("g","gg", Calendar.getInstance().getTime(),kontakt1,kontakt2);
+   // Message poruka5 = new Message("d","dd", Calendar.getInstance().getTime(),kontakt2,kontakt1);
+
+    Folder folder = new Folder();
 
 
     @Override
@@ -81,11 +84,39 @@ public class FolderActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        TextView folderName = (TextView)findViewById(R.id.folderId);
+
+
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("folder");
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.47:8080/RestService/messageservice/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        FolderPlaceHolder folderPlaceHolder= retrofit.create(FolderPlaceHolder.class);
+
+        Call<Folder> call = folderPlaceHolder.getFolder(id);
+        call.enqueue(new Callback<Folder>() {
+            @Override
+            public void onResponse(Call<Folder> call, Response<Folder> response) {
+                if(!response.isSuccessful()){
+                    return;
+                }
+                folder = response.body();
+
+            }
+
+            @Override
+            public void onFailure(Call<Folder> call, Throwable t) {
+
+            }
+        });
 
         ListView lw = (ListView)findViewById(R.id.listViewEmails);
 
-
+        TextView folderName = (TextView)findViewById(R.id.folderId);
+        folderName.setText(folder.getName());
 
        /* poruke.add(poruka1);
         poruke.add(poruka2);
@@ -94,9 +125,6 @@ public class FolderActivity extends AppCompatActivity {
         poruke.add(poruka5);
 
         Folder folder = (Folder) getIntent().getParcelableExtra("folder");
-
-        TextView folderName = (TextView)findViewById(R.id.folderId);
-        folderName.setText(folder.getName());
 
         ListView lw = (ListView)findViewById(R.id.listViewEmails);
         ArrayAdapter<Message> arrayAdapter = new ArrayAdapter<Message>(this,android.R.layout.simple_list_item_1,poruke);

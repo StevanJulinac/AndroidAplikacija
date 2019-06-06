@@ -185,13 +185,8 @@ public class FoldersActivity extends AppCompatActivity implements
     protected void onResume() {
         super.onResume();
 
-        //folders.add(folder1);
-       // folders.add(folder2);
-
-        final TextView resultat = findViewById(R.id.testFolders);
-
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.47:8080/Termin04/folderservice/")
+                .baseUrl("http://192.168.1.47:8080/RestService/folderservice/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -202,12 +197,10 @@ public class FoldersActivity extends AppCompatActivity implements
             @Override
             public void onResponse(Call<ArrayList<Folder>> call, Response<ArrayList<Folder>> response) {
                 if(!response.isSuccessful()){
-                    resultat.setText(response.code());
                     return;
                 }
                 folders = response.body();
                 for(Folder f : folders){
-                    resultat.setText(f.toString());
                 }
 
             }
@@ -228,7 +221,7 @@ public class FoldersActivity extends AppCompatActivity implements
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Folder folder = (Folder) parent.getItemAtPosition(position);
                 Intent intent  = new Intent(FoldersActivity.this, FolderActivity.class);
-                intent.putExtra("folder",folder);
+                intent.putExtra("folder",folder.getId());
                 startActivity(intent);
 
             }

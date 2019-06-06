@@ -26,6 +26,15 @@ import java.util.ArrayList;
 
 import arrayAdapter.ContactArrayAdapter;
 import klase.Contact;
+import klase.Folder;
+import klase.Message;
+import placeholder.ContactPlaceHolder;
+import placeholder.MessagePlaceHolder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContactsActivity extends AppCompatActivity
                         implements NavigationView.OnNavigationItemSelectedListener {
@@ -33,7 +42,9 @@ public class ContactsActivity extends AppCompatActivity
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
+    ArrayList<Contact> contacts = new ArrayList<Contact>();
     //ArrayList<Contact> contacts;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,33 +94,18 @@ public class ContactsActivity extends AppCompatActivity
             }
         });*/
 
-        final ArrayList<Contact> contacts = new ArrayList<Contact>();
-        contacts.add(new Contact("0","Milan","Julinac","display1","milanjulinac996@gmail.com","123","slika1"));
-        contacts.add(new Contact("1","Dude","Hasg","display2","DudeHASG@gmail.com","123","slika1"));
-        contacts.add(new Contact("2","Guy","Joqwe","display4","GUYGUY99@gmail.com","123","slika1"));
-        contacts.add(new Contact("3","Man","Cann","display5","MANCANN@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Idjit","Profl","display6","IDJIT96@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Someone","Poet","display7","SOMEONPO@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","Me","Igrow","display8","IGROWME@gmail.com","123","slika1"));
-        contacts.add(new Contact("0","You","Huehue","display9","HUEHUEHUE@gmail.com","123","slika1"));
+
+        //contacts.add(new Contact("0","Milan","Julinac","display1","milanjulinac996@gmail.com","123","slika1"));
+       // contacts.add(new Contact("1","Dude","Hasg","display2","DudeHASG@gmail.com","123","slika1"));
+       // contacts.add(new Contact("2","Guy","Joqwe","display4","GUYGUY99@gmail.com","123","slika1"));
+       // contacts.add(new Contact("3","Man","Cann","display5","MANCANN@gmail.com","123","slika1"));
+        //contacts.add(new Contact("0","Idjit","Profl","display6","IDJIT96@gmail.com","123","slika1"));
+        //contacts.add(new Contact("0","Someone","Poet","display7","SOMEONPO@gmail.com","123","slika1"));
+       // contacts.add(new Contact("0","Me","Igrow","display8","IGROWME@gmail.com","123","slika1"));
+       // contacts.add(new Contact("0","You","Huehue","display9","HUEHUEHUE@gmail.com","123","slika1"));
 
 
-        ContactArrayAdapter contactAdapter = new ContactArrayAdapter(this, contacts);
 
-        ListView listView = (ListView) findViewById(R.id.listContacts);
-        listView.setAdapter(contactAdapter);
-
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Contact kontakt = (Contact) parent.getItemAtPosition(position);
-                //Toast.makeText(ContactsActivity.this,kontakt.toString(),Toast.LENGTH_LONG).show();
-                Intent intent  = new Intent(ContactsActivity.this, ContactActivity.class);
-                intent.putExtra("contact",kontakt);
-                startActivity(intent);
-
-            }
-        });
 
     }
 
@@ -201,6 +197,7 @@ public class ContactsActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
+
     }
 
     @Override
@@ -211,6 +208,46 @@ public class ContactsActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.47:8080/RestService/contactservice/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        ContactPlaceHolder contactPlaceHolder = retrofit.create(ContactPlaceHolder.class);
+
+        Call<ArrayList<Contact>> call = contactPlaceHolder.getContacts();
+        call.enqueue(new Callback<ArrayList<Contact>>() {
+            @Override
+            public void onResponse(Call<ArrayList<Contact>> call, Response<ArrayList<Contact>> response) {
+                if(!response.isSuccessful()){
+                    return;
+                }
+                contacts = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<Contact>> call, Throwable t) {
+                return;
+            }
+        });
+
+
+        ContactArrayAdapter contactAdapter = new ContactArrayAdapter(this, contacts);
+
+        ListView listView = (ListView) findViewById(R.id.listContacts);
+        listView.setAdapter(contactAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Contact kontakt = (Contact) parent.getItemAtPosition(position);
+                Intent intent  = new Intent(ContactsActivity.this, ContactActivity.class);
+                intent.putExtra("contact",kontakt.getId());
+                startActivity(intent);
+
+            }
+        });
 
 
 

@@ -14,7 +14,6 @@ public class Message implements Serializable {
     private Contact to;
     private ArrayList<Contact> cc;
     private ArrayList<Contact> bcc;
-    private Date datumVreme;
     private String subject;
     private String content;
     private Tag tag;
@@ -22,24 +21,6 @@ public class Message implements Serializable {
     private Account akaunt;
     private Folder folder;
 
-    public Message() {
-
-        this.id = "";
-        this.datumVreme = Calendar.getInstance().getTime();
-        this.subject = "";
-        this.content = "";
-
-    }
-
-    public Message(String subject,String content,Date datumVreme,Contact from, Contact to){
-
-        this.subject = subject;
-        this.content = content;
-        this.datumVreme = datumVreme;
-        this.from = from;
-        this.to = to;
-
-    }
 
     @Override
     public String toString() {
@@ -47,13 +28,14 @@ public class Message implements Serializable {
 
     }
 
-    public Message(String id, Contact from, Contact to, ArrayList<Contact> cc, ArrayList<Contact> bcc, Date datumVreme, String subject, String content, Tag tag, Attachment dodatak, Account akaunt, Folder folder) {
+    public Message(){}
+
+    public Message(String id, Contact from, Contact to, ArrayList<Contact> cc, ArrayList<Contact> bcc,  String subject, String content, Tag tag, Attachment dodatak, Account akaunt, Folder folder) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.cc = cc;
         this.bcc = bcc;
-        this.datumVreme = datumVreme;
         this.subject = subject;
         this.content = content;
         this.tag = tag;
@@ -133,14 +115,6 @@ public class Message implements Serializable {
 
     public void setBcc(ArrayList<Contact> bcc) {
         this.bcc = bcc;
-    }
-
-    public Date getDatumVreme() {
-        return datumVreme;
-    }
-
-    public void setDatumVreme(Date datumVreme) {
-        this.datumVreme = datumVreme;
     }
 
     public String getSubject() {

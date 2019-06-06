@@ -14,11 +14,19 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 import klase.Contact;
+import placeholder.ContactPlaceHolder;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ContactActivity extends AppCompatActivity {
 
-    Contact kontakt1 = new Contact("1","Marko","Markovic","Blabalba","@markomarkovic@email.com","1");
+    Contact kontakt = new Contact();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,18 +65,32 @@ public class ContactActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-    }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-    }
+        Intent intent = getIntent();
+        String id = intent.getStringExtra("contact");
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.1.47:8080/RestService/contactservice/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
 
-        Contact kontakt = (Contact) getIntent().getParcelableExtra("contact");
+        ContactPlaceHolder contactPlaceHolder = retrofit.create(ContactPlaceHolder.class);
+
+        Call<Contact> call = contactPlaceHolder.getContact(id);
+        call.enqueue(new Callback<Contact>() {
+            @Override
+            public void onResponse(Call<Contact> call, Response<Contact> response) {
+                if(!response.isSuccessful()){
+                    return;
+                }
+                kontakt = response.body();
+            }
+
+            @Override
+            public void onFailure(Call<Contact> call, Throwable t) {
+                return;
+            }
+        });
 
         EditText txtContact = (EditText) findViewById(R.id.insert_ContactID);
         txtContact.setText(kontakt.getDisplay());
@@ -81,6 +103,18 @@ public class ContactActivity extends AppCompatActivity {
 
         EditText txtEmail = (EditText) findViewById(R.id.insert_email);
         txtEmail.setText(kontakt.getEmail());
+
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
 
 
     }
