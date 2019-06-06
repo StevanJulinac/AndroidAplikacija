@@ -6,11 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".CreateContactActivity">
 
+    <ImageButton
+        android:id="@+id/contactPic"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_margin="10dp"
+        android:layout_below="@id/toolbar"/>
+
     <TextView
         android:id="@+id/contactID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/contactPic"
         android:text="@string/txtView_contact"
         android:textSize="28sp"
         android:layout_marginBottom="10dp"/>
@@ -21,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
         android:layout_toEndOf="@id/contactID"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/contactPic"
         android:inputType="text"
         android:textSize="15sp" />
 
